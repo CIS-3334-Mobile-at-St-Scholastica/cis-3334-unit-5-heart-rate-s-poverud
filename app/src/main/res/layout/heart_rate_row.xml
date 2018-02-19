@@ -6,13 +6,19 @@
 
     <TextView
         android:id="@+id/textViewPulse"
-        android:layout_width="180dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Pulse:" />
+        android:layout_weight="0"
+        android:text="Pulse: " />
 
     <TextView
         android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/tvRange"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1" />

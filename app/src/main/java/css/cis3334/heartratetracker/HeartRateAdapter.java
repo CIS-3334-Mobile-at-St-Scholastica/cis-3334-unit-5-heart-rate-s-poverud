@@ -2,6 +2,7 @@ package css.cis3334.heartratetracker;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,8 +48,20 @@ public class HeartRateAdapter extends ArrayAdapter<HeartRate> {
         //get the heart rate we are displaying
         HeartRate hr = hrList.getHeartRate(position);
 
+        TextView tvRange = (TextView) view.findViewById(R.id.tvRange);
         TextView tvPulse = (TextView) view.findViewById(R.id.textViewPulse);
         tvPulse.setText(hr.getPulse().toString());
+        tvRange.setText(hr.getRangeName().toString());
+
+        if(hr.getRangeName() == "Resting"){
+            tvRange.setTextColor(ContextCompat.getColor(context, R.color.rest));
+        }else if(hr.getRangeName() == "Aerobic"){
+            tvRange.setTextColor(ContextCompat.getColor(context, R.color.aerobic));
+        }else if(hr.getRangeName() == "Anaerobic"){
+            tvRange.setTextColor(ContextCompat.getColor(context, R.color.anaerobic));
+        }else if(hr.getRangeName() == "Red zone"){
+            tvRange.setTextColor(ContextCompat.getColor(context, R.color.redzone));
+        }
 
         return (view);
     }
